@@ -1,0 +1,31 @@
+.login-social {
+    margin-top: 15px;
+    border: none;
+    color: #fff;
+    padding: 10px 45px;
+    border-radius: 5px;
+    text-transform: uppercase;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+.facebook-login {
+    background: #2e6da4;
+}
+.google-login {
+    background: #C11F27;
+}
+.login-social:hover {
+    background: rgba(0,0,0,.8);
+}
+#model-box {
+    border-radius: 3px;
+    /*border: 1px solid #ccf2ff;*/
+    background: #e4eee3 ;
+    padding-bottom: 20px;
+    width: 450px;
+    margin-left: 0;
+}
+

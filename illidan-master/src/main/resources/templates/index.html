@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header :: header-css">
+</head>
+<body>
+
+<div class="main-section">
+    <nav class="navbar navbar-expand-lg navbar-light ftco_navbar bg-light ftco-navbar-light" id="features">
+        <div class="container">
+            <img src="../img/logo.png" alt="" class="logo_website">
+            <div class="collapse navbar-collapse" id="ftco-nav">
+                <ul class="navbar-nav ml-auto">
+                    <li ><a href="#features" class="item_title">Home</a>
+                    <li ><a href="#pricing" class="item_title">Pricing</a>
+                    <li ><a href="#faq" class="item_title">FAQs</a>
+                    <li ><a href="#contact" class="item_title">Contact</a>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="">
+        <div id="home" class="parallax first-section" style="background-image:url('../img/bg-img.jpg');">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12">
+                        <div class="big-tagline">
+                            <h2>We can provide reviews for android & IOS apps</h2>
+                            <p class="lead">We help iOS and Android developers to boost Apps and games Rankings on Google and Apple Play Stores. Our boosting services include:</p>
+                            <p style="color: white">1) Include the desired keyword in reviews</p>
+                            <p style="color: white">2) 5-Star Rating and positive Reviews</p>
+                            <p style="color: white">3) App promotion by getting high quality app reviews</p>
+                            <span data-scroll class="btn btn-light btn-radius btn-brd"><i class="fa fa-play" aria-hidden="true"></i> GooglePlay </span>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <span data-scroll class="btn btn-light btn-radius btn-brd"><i class="fa fa-apple" aria-hidden="true"></i> App Store</span>
+                        </div>
+                    </div>
+                    <div class="app_iphone_01 wow slideInUp hidden-xs hidden-sm" data-wow-duration="1s" data-wow-delay="0.2s">
+                        <img src="../img/app_iphone_01.png" alt="" class="img-fluid">
+                    </div>
+                    <div class="app_iphone_02 wow slideInUp hidden-xs hidden-sm" data-wow-duration="1s" data-wow-delay="0.5s">
+                        <img src="../img/app_iphone_02.png" alt="" class="img-fluid">
+                    </div>
+                </div><!-- end row -->
+            </div><!-- end container -->
+        </div><!-- end section -->
+        <div class="container">
+            <div class="row" id="whyme">
+                <div class="col-md-4" >
+                    <img src="../img/whyme.png" alt="">
+                </div>
+                <div class="col-md-8">
+                    <h3>Why are Ratings and Reviews Important?</h3>
+                    <p>Everything is simple:</p>
+                    <ul>
+                        <li>Applications rated below 3.5 stars rise to TOP rarely</li>
+                        <li>The better rating brings more purchases and installs</li>
+                        <li>Rating is the first thing people pay attention to</li>
+                        <li>When choosing, the potential users are more likely to install an application with the best rating</li>
+                        <li>People always read reviews before buying an app</li>
+                        <li>In 85% of cases people read reviews before installing an application</li>
+                        <li>The app rating is an obvious indicator of the users attitude to your app and company in general</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row" id="provide">
+                <div class="col-md-8">
+                    <h1>Global Reach</h1>
+                    <p>Note that every country has its own application store, ratings and reviews. Therefore, it is crucial to pay attention to every country where you are promoted. We can provide reviews for all store.</p>
+                </div>
+                <div class="col-md-4" >
+                    <img src="../img/world.png" alt="" style="max-width: 120%;">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END nav -->
+
+    <section class="ftco-section ftco-section-2 section-signup page-header img" id="pricing">
+        <hr>
+        <div class="container">
+            <div style="font-weight: bold; font-size: 2.1em; padding-top: 50px">Flexible Pricing</div>
+            <p style="padding: 15px 0 0">Choose a plan with the reviews quantity that you want.</p>
+
+            <h2 style="margin-top: 50px;">Service for Android / IOS reviews</h2>
+            <div class="row row-product">
+                <div class="col-md-3 col-sm-6 mb-3 mb-md-0 " th:each="product : ${vm.getListProductsByIOS()}">
+                    <div class="card card-style shadow">
+                        <h5 class="card-header py-4 align-items-center" th:text="${product.getType()}"></h5>
+                        <div class="card-body">
+                            <h2 style="height: 75px;">$ <span class="price" th:text="${product.getPrice()}"></span></h2>
+                            <p class="card-text name" th:text="${product.getName()}"></p>
+                            <p class="card-text description" th:text="${product.getDescription()}"></p>
+                            <p class="card-text" th:text="${product.getSupport()}"></p>
+                            <p class="card-text">Delivery: <span th:text="${product.getDelivery()}"></span> Days</p>
+                            <a class="btn btn-buy trigger_popup">BUY NOW</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hover_bkgr">
+                    <!-- <span class="helper"></span> -->
+                    <div class="content">
+                        <div class="popupCloseButton">&times;</div>
+                        <ul>
+                            <li>
+                                <p class="input_hidden"></p>
+                                <input type="text" class="email" name="" required placeholder="Email">
+                            </li>
+                            <li>
+                                <input type="text" class="url_app" name="" required placeholder="App URL. e.g. https://play.google.com/store/apps/details?id=com.facebook.lite">
+                            </li>
+                            <li>
+                                <textarea name="key_words" cols="1" required rows="2" class="key_words wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Keywords"></textarea>
+                            </li>
+                            <li>
+                                <button type="submit" class="submit price-pay" data-loading-text="<i class='fa fa-spinner fa-spin '></i> PROCESSING TO PAY">PROCEED TO PAY</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <h2 style="margin-top: 50px;">Service for Android / IOS ratings</h2>
+            <div class="row row-product">
+                <div class="col-md-3 col-sm-6 mb-3 mb-md-0 " th:each="product : ${vm.getListProductsByAndroid()}">
+                    <div class="card card-style shadow">
+                        <h5 class="card-header py-4 align-items-center" th:text="${product.getType()}"></h5>
+                        <div class="card-body">
+                            <h2 style="height: 75px;">$ <span class="price" th:text="${product.getPrice()}"></span></h2>
+                            <p class="card-text name" th:text="${product.getName()}"></p>
+                            <p class="card-text description" th:text="${product.getDescription()}"></p>
+                            <p class="card-text" th:text="${product.getSupport()}"></p>
+                            <p class="card-text">Delivery: <span th:text="${product.getDelivery()}"></span> Days</p>
+                            <a class="btn btn-buy trigger_popup2">BUY NOW</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="hover_bkgr2">
+                    <!-- <span class="helper"></span> -->
+                    <div class="content">
+                        <div class="popupCloseButton2">&times;</div>
+                        <ul>
+                            <li>
+                                <p class="input_hidden"></p>
+                                <input type="text" class="email" name="" required placeholder="Email">
+                            </li>
+                            <li>
+                                <input type="text" class="url_app" name="" required placeholder="App URL. e.g. https://play.google.com/store/apps/details?id=com.facebook.lite">
+                            </li>
+                            <li>
+                                <textarea name="key_words" cols="1" rows="2" class="key_words wpcf7-form-control wpcf7-textarea wpcf7-validates-as-required" aria-required="true" aria-invalid="false" placeholder="Keywords"></textarea>
+                            </li>
+                            <li>
+                                <button type="submit" class="submit price-pay" data-loading-text="<i class='fa fa-spinner fa-spin '></i> PROCESSING TO PAY">PROCEED TO PAY</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div id="faq" class="clear-fix">
+        <div class="container">
+            <div id="question">Most Frequently Asked Questions</div>
+            <p style="padding-bottom: 20px">Below is the list of frequently asked questions about our Android App Reviews services.</p>
+            <div id="list-question" class="float-left clear-fix">
+                <ul style="position: relative">
+                    <li class="">
+                        <a href="#a1">Does your services are compliance with Apple and Google policies? <i style="font-size: 13px; position: absolute; right: 10px;" class="circle fa fa-chevron-right"></i></a>
+                        <div id="a1" class="tab-content">Absolutely YES, we use only Safe techniques for the delivery of reviews as we do not involve any automated systems, bots or emulators into the process.  We work with 100% real users. All reviews are from different IPs, devices and individuals. We’ve never had any cases that the client’s app or account was removed from the store due to our service. We totally follow all the rules of Apple &  Android Google Play Market, ensuring that all the reviews we provide are natural.</div>
+                    </li>
+                    <li class="">
+                        <a href="#a2">Which stores you can provide reviews for Android/ IOS platform? <i style="font-size: 13px; position: absolute; right: 10px;" class="circle fa fa-chevron-right"></i></a>
+                        <div class="tab-content" id="a2">All stores/countries on Android/ iOS platform such as: USA, UK, Canada, Australia, Germany, France, Spain, Netherlands, Sweden, Norway, Denmark, Italy, India, China, Japan, Korea, Brazil, Russia,....</div>
+                    </li>
+                    <li class="">
+                    <a href="#a3">How long will reviews stay? What are your guarantees? <i style="font-size: 13px; position: absolute; right: 10px;" class="circle fa fa-chevron-right"></i></a>
+                    <div id="a3" class="tab-content">Forever. We only provide reviews which stay on your app forever, you do not pay for reviews get deleted. In other words, We guarantee that you will receive all reviews you have ordered. We assure you that the reviews you will get are 100% from real app users. If we appear unable to deliver you the reviews that you ordered, we will refund the money in accordance to the number of reviews that you have not received.</div>
+                </li>
+                    <li class="">
+                        <a href="#a4">Can I provide content for reviews from my end? <i style="font-size: 13px; position: absolute; right: 10px;" class="circle fa fa-chevron-right"></i></a>
+                        <div id="a4" class="tab-content">Absolutely yes! If you want strict control over the quality of every individual review, you can consider sending content for each review from your end. Our users will just copy and paste these reviews on your app.</div>
+                    </li>
+                    <li class="">
+                        <a href="#a5">Can I request number of reviews I want to post everyday? <i style="font-size: 13px; position: absolute; right: 10px;" class="circle fa fa-chevron-right"></i></a>
+                        <div id="a5" class="tab-content">Yes, you can request 2-50 reviews per day.</div>
+                    </li>
+                    <li>
+                        <a href="#a6">How long does it take for reviews to appear on the App Store and Google Play? <i style="font-size: 13px; position: absolute; right: 10px;" class="circle fa fa-chevron-right"></i></a>
+                        <div id="a6" class="tab-content">Normally, Android reviews appear on Google Play as soon as users post them, but iOS reviews may take 24 hours to appear on the App Store.</div>
+                    </li>
+                    <li class="">
+                        <a href="#a7">My app is paid one, can I get reviews for the same? <i style="font-size: 13px; position: absolute; right: 10px;" class="circle fa fa-chevron-right"></i></a>
+                        <div id="a7" class="tab-content">Unfortunately we do not work with paid apps. Our services are available only for the apps which are FREE and available GLOBALLY.</div>
+                    </li>
+                    <li class="">
+                        <a href="#a8">How does this work for apps? <i style="font-size: 13px; position: absolute; right: 10px;" class="circle fa fa-chevron-right"></i></a>
+                        <div id="a8" class="tab-content">Google Play Market contains over 1,500,000 applications and to become visible the app needs lots of installs, great reviews and high ratings. We guarantee that each review that we provide will have an effect on the potential users. Excellent reviews and high ranking are of high importance for every app. This will help to increase the overall ranking of the application until it gets into the “Popular Apps” list.</div>
+                    </li>
+                    <li class="">
+                        <a href="#a9">How does Buyreviewsapp work? <i style="font-size: 13px; position: absolute; right: 10px;" class="circle fa fa-chevron-right"></i></a>
+                        <div id="a9" class="tab-content">We have a large number of users who are always ready to review your app. After receiving your request, we will ask our users to download, open your app and leave positive reviews and 4/5 star ratings. Of course, they must keep your app on their mobiles at least 14 days. They will also get rewards when reviewing apps.</div>
+                    </li>
+                    <li class="">
+                        <a href="#a10">If you have any questions about our service, please contact us via: <i style="font-size: 13px; position: absolute; right: 10px;" class="circle fa fa-chevron-right"></i></a>
+                        <div id="a10" class="tab-content">
+                            <p>Email: admin@buyreviewsapp.com</p>
+                            <p>Skype: admin@buyreviewsapp.com</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+</div>
+
+<footer class="ftco-section ftco-section-2" id="contact">
+    <section id="mu-contact">
+        <div class="container">
+            <div style="font-weight: bold; font-size: 2.1em; padding: 50px 0;">Contact us</div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="mu-contact-area">
+
+                        <div class="mu-title-area">
+                            <h2 class="mu-heading-title">GET IN TOUCH</h2>
+                            <span class="mu-title-dot"></span>
+                            <p>If you have any questions about our service, please contact us via:</p>
+                        </div>
+
+                        <!-- Start Contact Content -->
+                        <div class="mu-contact-content">
+                            <div class="row">
+                                <div class="col-md-7">
+                                    <div class="mu-contact-left">
+                                        <div id="form-messages"></div>
+                                        <form th:action="@{/send-email}" method="post" id="ajax-contact" class="mu-contact-form">
+                                            <div class="form-group">
+                                                <input type="text" class="form-control" placeholder="Name" id="name" name="name" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="email" class="form-control" placeholder="Enter Email" id="email" name="email" required>
+                                            </div>
+                                            <div class="form-group">
+                                                <textarea class="form-control" placeholder="Message" id="message" name="message" required></textarea>
+                                            </div>
+                                            <button type="submit" class="mu-send-msg-btn"><span>SUBMIT</span></button>
+                                        </form>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-5">
+                                    <div class="mu-contact-right">
+                                        <div class="mu-contact-right-single">
+                                            <div class="mu-icon"><i class="fa fa-map-marker"></i></div>
+                                            <p><strong>Office Location</strong></p>
+                                            <p>Dooley Branch Rd Millen, GA 30442, USA</p>
+                                        </div>
+
+                                        <div class="mu-contact-right-single">
+                                            <div class="mu-icon"><i class="fa fa-skype"></i></div>
+                                            <p><strong>Skype</strong></p>
+                                            <p>admin@buyreviewsapp.com</p>
+                                        </div>
+
+                                        <div class="mu-contact-right-single">
+                                            <div class="mu-icon"><i class="fa fa-envelope"></i></div>
+                                            <p><strong>Email Address</strong></p>
+                                            <p>admin@buyreviewsapp.com</p>
+                                            <p>buyreviewsapp@gmail.com</p>
+                                        </div>
+
+                                        <div class="mu-contact-right-single">
+                                            <div class="mu-social-media">
+                                                <a href="https://www.facebook.com/Buyreviewsappcom-104858037785587/"><i class="fa fa-facebook"></i></a>
+                                                <a href="https://www.youtube.com/channel/UC9MuPBsP4x4RqvR_Qm_qcUg/?guided_help_flow=5"><i class="fa fa-youtube"></i></a>
+                                         
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <!-- End Contact Content -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="col-md-12 text-center" style="margin-top: 100px; margin-bottom: 30px;">
+        <p class="mb-0">
+            Copyright &copy;<script>
+            document.write(new Date().getFullYear());
+        </script> All rights reserved | Buyreviewsapp</i>
+        </p>
+    </div>
+</footer>
+
+</div>
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+        var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+        s1.async=true;
+        s1.src='https://embed.tawk.to/5e4ea749a89cda5a188718ae/default';
+        s1.charset='UTF-8';
+        s1.setAttribute('crossorigin','*');
+        s0.parentNode.insertBefore(s1,s0);
+    })();
+</script>
+<!--End of Tawk.to Script-->
+
+<div th:replace="fragments/footer :: js-index"></div>
+<script type="text/javascript" th:src="@{/js/main.js}"></script>
+
+<!--<script type="text/javascript"> //<![CDATA[-->
+<!--  var tlJsHost = ((window.location.protocol == "https:") ? "https://secure.trust-provider.com/" : "http://www.trustlogo.com/");-->
+<!--  document.write(unescape("%3Cscript src='" + tlJsHost + "trustlogo/javascript/trustlogo.js' type='text/javascript'%3E%3C/script%3E"));-->
+<!--//]]></script>-->
+<!--<script language="JavaScript" type="text/javascript">-->
+<!--  TrustLogo("https://www.positivessl.com/images/seals/positivessl_trust_seal_lg_222x54.png", "POSDV", "none");-->
+<!--</script>-->
+
+</body>
+</html>

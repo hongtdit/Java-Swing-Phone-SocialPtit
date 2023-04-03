@@ -1,0 +1,718 @@
+body, html {
+    font-family: Red hat Display, sans-serif;
+    font-weight: 400;
+    font-size: 100%;
+    line-height: 1.25em;
+    letter-spacing: 0.025em;
+    color: #333;
+    background-color: #f7f7f7;
+    -webkit-text-size-adjust: 100%;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+.wrapper {
+    margin: 0 auto;
+    padding: 0;
+    font-family: sans-serif;
+    font-size: 13pt;
+}
+#header {
+    width: 100%;
+}
+#inner-header {
+    height: 100px;
+    width: 100%;
+    background-color: #4b6600;
+}
+#introduction {
+    margin-top: 100px;
+    margin-bottom: 50px;
+}
+#main-content {
+    margin-top: 50px;
+}
+.navbar-brand {
+    margin-top: 20px;
+}
+.item_title {
+    padding: 13px 15px;
+    color: black;
+    font-size: 1em;
+    text-decoration: none;
+    display: block !important;
+}
+.item_title:hover {
+    color: white;
+    background-color: #AD1457;
+    text-decoration: none;
+}
+#bg2_img {
+     background-image: url('../img/bg2.jpg');
+     background-repeat: no-repeat;
+}
+#bg3_img {
+    background-image: url('../img/bg3.jpg');
+    background-repeat: no-repeat;
+}
+.box-product {
+    height: 200px;
+    text-align: center;
+    margin: 20px;
+    border: 1px solid #f5f5f0;
+    background-color: #006622;
+    position: relative;
+}
+.name-product {
+    padding: 10px 0;
+    color: white;
+    font-size: 16pt;
+}
+.price-product {
+    color: red;
+    padding: 10px 0;
+}
+.buy-product {
+    padding: 10px 0;
+}
+.buy-product button {
+    font-size: 16pt;
+    font-weight: bold;
+    color: white;
+    background-color: #990000;
+    padding: 5px 20px;
+}
+* {
+    box-sizing: border-box;
+}
+.open-button {
+    background-color: #555;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    position: fixed;
+    bottom: 27px;
+    right: 28px;
+    width: 280px;
+}
+
+/* The popup chat - hidden by default */
+.chat-popup {
+    max-height: 70%;
+    width: 24rem;
+    height: 30rem;
+    display: none;
+    position: fixed;
+    bottom: 35px;
+    right: 15px;
+    border: 3px solid #f1f1f1;
+    z-index: 9;
+}
+
+.name {
+    font-weight: 500;
+    margin-bottom: 0.125rem;
+}
+.message, .seen {
+    font-size: 0.9rem;
+    color: #333;
+}
+.chat {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 24rem;
+    height: 28rem;
+    z-index: 12;
+    box-sizing: border-box;
+    border-radius: 1rem;
+    background: #cdcdcd;
+    box-shadow: 0 0 8rem 0 rgba(0, 0, 0, 0.1), 0rem 2rem 4rem -3rem rgba(0, 0, 0, 0.5);
+}
+.chat .messages {
+    padding: 1rem;
+    height: 23rem;
+    background: #f7f7f7;
+    flex-shrink: 2;
+    overflow-y: auto;
+    box-shadow: inset 0 2rem 2rem -2rem rgba(0, 0, 0, 0.05), inset 0 -2rem 2rem -2rem rgba(0, 0, 0, 0.05);
+}
+.chat .messages .message {
+    box-sizing: border-box;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem;
+    background: #fff;
+    border-radius: 1.125rem 1.125rem 1.125rem 0;
+    min-height: 2.25rem;
+    width: fit-content;
+    max-width: 66%;
+    box-shadow: 0 0 2rem rgba(0, 0, 0, 0.075), 0rem 1rem 1rem -1rem rgba(0, 0, 0, 0.1);
+}
+.chat .messages .message.parker {
+    margin: 0.5rem 1rem 0.5rem auto;
+    border-radius: 1.125rem 1.125rem 0 1.125rem;
+    background: #333;
+    color: white;
+}
+
+.chat .input {
+    box-sizing: border-box;
+    flex-basis: 4rem;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    padding: 0 0.5rem 0 1.5rem;
+    position: absolute;
+    bottom: 25px;
+}
+
+.chat .input input {
+    border: none;
+    width: 17rem;
+    background-color: white;
+    padding: 0.5rem 1rem;
+    margin-right: 0.5rem;
+    border-radius: 1.125rem;
+    flex-grow: 2;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1), 0rem 1rem 1rem -1rem rgba(0, 0, 0, 0.2);
+    font-family: Red hat Display, sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.025em;
+}
+.chat .input input::placeholder {
+    color: #999;
+}
+.chat .input span {
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 10px 22px 10px 20px;
+}
+/* Add styles to the form container */
+.form-container {
+    height: 200px;
+    max-width: 300px;
+    padding: 10px;
+    background-color: white;
+}
+
+/* Full-width textarea */
+.form-container textarea {
+    width: 100%;
+    /*padding: 5px;*/
+    /*margin: 5px 0 22px 0;*/
+    border: none;
+    background: #f1f1f1;
+    resize: none;
+    height: 35px;
+}
+
+/* When the textarea gets focus, do something */
+.form-container textarea:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+/* Set a style for the submit/send button */
+.form-container .btn {
+    background-color: #4CAF50;
+    color: white;
+    padding: 16px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-bottom:10px;
+    opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+    background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+    opacity: 1;
+}
+.row-product {
+    position: relative;
+    padding: 10px 0;
+    text-align: center;
+}
+.row-product:first-child {
+    margin-top: 0 !important;
+}
+#pricing {
+    padding: 10px 0;
+}
+#faq {
+    /*margin: 50px 100px;*/
+}
+#contact {
+    padding: 50px 0;
+}
+#contact_inner ul {
+    list-style-type: none;
+}
+#contact_inner ul li {
+    display: inline-block;
+    padding: 10px 20px;
+}
+#contact_inner ul li a {
+    display: block;
+    padding: 20px;
+}
+
+#section_chat ul {
+    list-style-type: none;
+}
+#section_chat ul li {
+    display: block;
+    padding: 10px 20px;
+}
+.check {
+    padding: 5px 10px;
+    /*text-align:left;*/
+}
+.shadow {
+    -webkit-box-shadow: -2px 38px 229px -34px rgba(168,168,168,1);
+    -moz-box-shadow: -2px 38px 229px -34px rgba(168,168,168,1);
+    box-shadow: -2px 38px 229px -34px rgba(168,168,168,1);
+}
+.btn-buy {
+    background: #ff5a60;
+    color: white !important;
+    margin: 10px 0;
+}
+
+.hover_bkgr {
+    display: none;
+    z-index: 100;
+}
+.hover_bkgr > .content {
+    background-color: #f7f7f7;
+    box-shadow: 10px 10px 60px #555;
+    display: inline-block;
+    height: 100%;
+    /*max-width: 1000px;*/
+    /*min-height: 100px;*/
+    vertical-align: middle;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 17px;
+    border-radius: 8px;
+    padding: 15px 25px;
+}
+.popupCloseButton {
+    background-color: #fff;
+    border: 3px solid #999;
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: bold;
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 25px;
+    line-height: 30px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+.popupCloseButton:hover {
+    background-color: #ccc;
+}
+
+.hover_bkgr2 {
+    display: none;
+    z-index: 100;
+}
+.hover_bkgr2 > .content {
+    background-color: #f7f7f7;
+    box-shadow: 10px 10px 60px #555;
+    display: inline-block;
+    height: 100%;
+    /*max-width: 1000px;*/
+    /*min-height: 100px;*/
+    vertical-align: middle;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 17px;
+    border-radius: 8px;
+    padding: 15px 25px;
+}
+.popupCloseButton2 {
+    background-color: #fff;
+    border: 3px solid #999;
+    border-radius: 50px;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: bold;
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    font-size: 25px;
+    line-height: 30px;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+.popupCloseButton2:hover {
+    background-color: #ccc;
+}
+
+.content ul {
+    list-style-type: none;
+    padding: 20px 0;
+    margin: 0;
+}
+.content ul li {
+    display: block;
+    padding: 5px 0;
+}
+.content ul li input,textarea {
+    display: block;
+    width: 80%;
+    margin-left: 10%;
+    padding: 5px;
+}
+.content ul li textarea {
+    height: 100px;
+}
+.content ul li button {
+    float: left;
+    clear: both;
+    text-align: center;
+    margin-left: 10%;
+    background-color: #ff5a60;
+    border: 1px solid #eee;
+    border-radius: 5px;
+}
+.input_hidden {
+    margin-left: 10%;
+    color: #EB555A;
+}
+.price-pay {
+    width: 250px !important;
+    padding: 20px !important;
+    font-weight: bold;
+    background-color: black;
+    color: white;
+}
+.icon-left {
+    float: left;
+    width: 10%;
+    padding: 5px;
+    font-size: 24pt;
+}
+.icon-left:first-child {
+    /*padding-top: 20px;*/
+}
+.content-right {
+    float: left;
+    width: 90%;
+    padding: 10px 5px;
+}
+.circle {
+    z-index:9;
+    transition: all .2s ease-in-out;
+    -webkit-transition: all .2s ease-in-out;
+    -moz-transition: all .2s ease-in-out;
+    -o-transition: all .2s ease-in-out;
+}
+.circle.flipping {
+    z-index:9;
+    -webkit-transform:rotate(90deg);
+    -moz-transform:rotate(90deg);
+}
+.logo_website {
+    max-width: 50%;
+    height: 100px;
+}
+#provide {
+     margin-top: 100px;
+}
+#whyme {
+     margin-top: 100px;
+}
+#whyme img {
+    max-width: 150%;
+}
+#whyme ul li {
+    padding: 10px 0;
+}
+.font-icons {
+    background-color: black;
+    color: white;
+    font-size: 32pt;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    cursor: pointer;
+}
+#features {
+    margin: 0 !important;
+}
+.parallax {
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100%;
+    padding: 120px 0;
+    position: relative;
+    width: 100%;
+}
+
+.first-section {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    padding: 16em 0 13em;
+}
+
+.first-section h2 {
+    color: #ffffff;
+    font-size: 52px;
+    font-weight: 600;
+    text-transform: capitalize;
+    display: block;
+    margin: 0;
+    padding: 0 0 30px;
+    position: relative;
+}
+
+.first-section .lead {
+    font-size: 21px;
+    font-weight: 300;
+    padding: 0 0 40px;
+    margin: 0;
+    line-height: inherit;
+    color: #ffffff;
+}
+#home {
+    position: relative;
+}
+#home .app_iphone_01 img {
+    max-width: 40%;
+    position: absolute;
+    right: 150px;
+    top: 200px;
+    z-index: 3;
+}
+#home .app_iphone_02 img {
+    max-width: 35%;
+    position: absolute;
+    right: 50px;
+    top: 320px;
+    z-index: 2;
+}
+
+.mu-primary-btn {
+    background-color: transparent;
+    border-radius: 4px;
+    border: 2px solid #ffffff;
+    color: #fff;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 12px 35px;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.mu-primary-btn:hover,
+.mu-primary-btn:focus {
+    background-color: #fff;
+}
+
+.mu-send-msg-btn {
+    background-color: #ff5a60;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-align: center;
+    padding: 14px 24px;
+    margin-top: 10px;
+    -webkit-transition: all 0.5s;
+    transition: all 0.5s;
+    width: 130px;
+    color: #fff;
+    border-radius: 10px;
+}
+
+.mu-send-msg-btn:hover,
+.mu-send-msg-btn:focus {
+    color: black;
+    background-color: #fff;
+}
+.mu-contact-content {
+    padding: 50px;
+}
+.mu-contact-content .col-md-5 {
+    padding-top: 20px;
+}
+
+.mu-contact-right-single {
+    display: inline;
+    float: left;
+    margin-bottom: 35px;
+    width: 100%;
+}
+.form-control {
+    margin-left: 0;
+}
+.mu-contact-right-single .mu-icon {
+    background-color: transparent;
+    font-size: 20px;
+    display: block;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+    float: left;
+    margin-right: 15px;
+}
+
+.mu-contact-right-single p{
+    margin-bottom: 0;
+}
+
+
+.mu-contact-left {
+    display: inline;
+    float: left;
+    width: 100%;
+}
+
+.mu-contact-form .form-group input {
+    background: transparent;
+    border-radius: 10px;
+    color: #333;
+    font-size: 15px;
+    border: 1px solid #888;
+    height: 45px;
+    margin-bottom: 24px;
+}
+
+.mu-contact-form .form-group textarea {
+    background: transparent;
+    border: 1px solid #888;
+    border-radius: 10px;
+    color: #333;
+    font-size: 18px;
+    padding: 10px;
+    height: 190px;
+}
+
+.mu-contact-form .form-control:focus {
+    background-color: #fff;
+    outline: 0;
+    box-shadow: none;
+}
+
+.mu-contact-form .form-control::-webkit-input-placeholder {
+    color: #888;
+    font-size: 15px;
+}
+
+.mu-contact-form .form-control:-moz-placeholder { /* Firefox 18- */
+    color: #888;
+    font-size: 15px;
+}
+
+.mu-contact-form .form-control::-moz-placeholder {  /* Firefox 19+ */
+    color: #888;
+    font-size: 15px;
+}
+
+.mu-contact-form .form-control:-ms-input-placeholder {
+    color: #888;
+    font-size: 15px;
+}
+
+.mu-contact-form .button-default::after,
+.mu-contact-form .button-default > span {
+    padding: 12px 40px;
+}
+
+.mu-social-media {
+    display: inline;
+    float: left;
+    width: 100%;
+}
+
+.mu-social-media a {
+    border: 1px solid #19191a;
+    border-radius: 50px;
+    color: #19191a;
+    display: inline-block;
+    font-size: 12px;
+    margin-right: 10px;
+    text-align: center;
+    text-decoration: none;
+    transition: all 0.2s ease-in-out 0s;
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 15px;
+}
+
+#form-messages {
+    margin-bottom: 10px;
+    background-color: #fff;
+}
+
+.success {
+    padding: 1em;
+    margin-bottom: 0.75rem;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    color: #468847;
+    background-color: #dff0d8;
+    border: 1px solid #d6e9c6;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.error {
+    padding: 1em;
+    margin-bottom: 0.75rem;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+    color: #b94a48;
+    background-color: #f2dede;
+    border: 1px solid rgba(185, 74, 72, 0.3);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.input_hidden {
+    text-align: left;
+}
+
+/*--------------------*/
+/* FOOTER */
+/*--------------------*/
+
+
+#mu-footer {
+    background-color: #f8f8f8;
+    display: inline;
+    float: left;
+    width: 100%;
+}
+
+.mu-footer-area{
+    display: inline;
+    float: left;
+    padding: 30px 0;
+    text-align: center;
+    width: 100%;
+}
+table.dataTable tbody tr td {
+    word-break: break-word;
+    vertical-align: top;
+}

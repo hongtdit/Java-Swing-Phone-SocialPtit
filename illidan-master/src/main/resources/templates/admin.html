@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments/header :: header-css">
+
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-2" style="text-align: center; padding: 20px 0"><a href="/">LE DUC THANG</a></div>
+                <div class="col-md-9"></div>
+                <div class="col-md-1">
+                    <a th:href="@{/logout}" style="text-align: center; padding-top: 20px; display: block; color: black">Logout</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2" id="list-question" style="padding: 0; text-align: center">
+                    <ul>
+                        <li>
+                            <a style="padding-left: 60px;" href="#a1">Product</a>
+                        </li>
+                        <li class="">
+                            <a style="padding-left: 60px;" href="#a3">Order</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-10" id="answer-quenstion">
+                    <div id="a1" class="tab-content" style="display: block">
+                        <section style="font-size: 0.8em;">
+                            <p style="margin-top: 10px;">
+                                <button type="button" class="btn btn-default" data-toggle="modal"
+                                        data-target="#modal-create-product">Add new product</button>
+                            </p>
+
+                            <div class="table-list-product">
+                                <table class="display dtr-inline collapsed" id="myTable" width="100%">
+                                    <thead>
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Product Name</th>
+                                        <th>Description</th>
+                                        <th>Support</th>
+                                        <th>Delivery</th>
+                                        <th>Kind</th>
+                                        <th>Price ($)</th>
+                                        <th>Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+
+                                    <tr th:each="product : ${vm.getListProductsByIOS()}">
+                                        <td><span th:text="${product.getType()}"></span></td>
+                                        <td><span th:text="${product.getName()}"></span></td>
+                                        <td><span th:text="${product.getDescription()}"></span></td>
+                                        <td><span th:text="${product.getSupport()}"></span></td>
+                                        <td><span th:text="${product.getDelivery()}"></span></td>
+                                        <td><span th:text="IOS"></span></td>
+                                        <td><span class="price" th:text="${product.getPrice()}"></span></td>
+                                        <td>
+                                            <button type="button" class="btn btn-default btn-edit-product"
+                                                    th:attr="data-product=${product.getId()}" data-toggle="modal"
+                                                    data-target="#modal-create-product">
+                                                <i>Edit</i>
+                                            </button>
+                                            <button class="btn btn-default btn-delete-product"
+                                                    th:attr="data-product=${product.getId()}">
+                                                <i>Delete</i>
+                                            </button>
+                                        </td>
+                                    </tr>
+
+                                    <tr th:each="product : ${vm.getListProductsByAndroid()}">
+                                        <td><span th:text="${product.getType()}"></span></td>
+                                        <td><span th:text="${product.getName()}"></span></td>
+                                        <td><span th:text="${product.getDescription()}"></span></td>
+                                        <td><span th:text="${product.getSupport()}"></span></td>
+                                        <td><span th:text="${product.getDelivery()}"></span></td>
+                                        <td><span th:text="Android"></span></td>
+                                        <td><span class="price" th:text="${product.getPrice()}"></span></td>
+                                        <td>
+                                            <button type="button" class="btn btn-default btn-edit-product"
+                                                    th:attr="data-product=${product.getId()}" data-toggle="modal"
+                                                    data-target="#modal-create-product">
+                                                <i>Edit</i>
+                                            </button>
+                                            <button class="btn btn-default btn-delete-product"
+                                                    th:attr="data-product=${product.getId()}">
+                                                <i>Delete</i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+                    </div>
+
+                    <div id="a3" class="tab-content" style="display: block">
+                        <section style="font-size: 0.8em;">
+                            <p style="margin-top: 10px; ">
+                            <div class="table-list-product">
+                                <table class="display nowrap dtr-inline" id="myTables" width="100%">
+                                    <thead style="max-width: 100%;">
+                                    <tr>
+                                        <th>Email</th>
+                                        <th>URL App</th>
+                                        <th>Keyword</th>
+                                        <th>Date</th>
+                                        <th>Price ($)</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody style="max-width: 100%;">
+
+                                    <tr th:each="orders : ${vm.getListOrders()}" style="max-width: 100%;">
+                                        <td style="width: 100px;"><span th:text="${orders.getEmail()}"></span></td>
+                                        <td style="width: 300px !important;"><span th:text="${orders.getUrlApp()}"></span></td>
+                                        <td style="width: 200px !important;"><span th:text="${orders.getKeyWord()}"></span></td>
+                                        <td style="width: 100px;"><span th:text="${orders.getCreatedDate()}"></span></td>
+                                        <td style="width: 100px;"><span class="price" th:text="${orders.getPrice()}"></span></td>
+                                        <td><span class="status" th:text="${orders.getStatus()}"></span></td>
+                                        <td>
+                                            <button style="display: inline;" class="btn btn-default btn-edit-status"
+                                                    th:attr="data-order=${orders.getId()}">
+                                                <i>Action</i>
+                                            </button>
+                                            <button style="display: inline;" class="btn btn-default btn-delete-order"
+                                                    th:attr="data-order=${orders.getId()}">
+                                                <i>Delete</i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal-create-product" class="modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog modal-lg" role="document" style="font-size: 0.8em;">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Product information</h4>
+                </div>
+                <div class="modal-body">
+                    <div>
+                        <input type="number" id="input-product-id" style="display: none">
+                    </div>
+                    <div class="form-group margin-bottom-15">
+                        <label>Product level:</label>
+                        <input type="text" required class="form-control" id="input-product-type">
+                    </div>
+
+                    <div class="form-group margin-bottom-15">
+                        <label>Product name:</label>
+                        <input type="text" required class="form-control" id="input-product-name">
+                    </div>
+
+                    <div class="form-group margin-bottom-15">
+                        <label>Description:</label>
+                        <input style="margin: 0;" required type="text" class="form-control" id="input-product-desc">
+                    </div>
+
+                    <div class="form-group margin-bottom-15">
+                        <label>Support:</label>
+                        <input style="margin: 0;" required type="text" class="form-control" id="input-product-support">
+                    </div>
+
+                    <div class="form-group margin-bottom-15">
+                        <label>Price ($):</label>
+                        <input type="number" required class="form-control" id="input-product-price">
+                    </div>
+
+                    <div class="form-group margin-bottom-15">
+                        <label>Delivery:</label>
+                        <input type="text" required class="form-control" id="input-product-delivery">
+                    </div>
+
+                    <div class="form-group margin-bottom-15">
+                        <label>Kind (1 - reviews, 2 - ratings):</label>
+                        <input type="text" required class="form-control" id="input-product-kind">
+                    </div>
+
+                    <button class="btn btn-default btn-save-product">Save product</button>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div th:include="fragments/footer :: js-index"></div>
+    <script type="text/javascript" th:src="@{/js/admin.js}"></script>
+
+</body>
+</html>
